@@ -1,6 +1,8 @@
 import Footer from "../components/footer.component.jsx";
 import Sidebar from "../components/sidebar.component.jsx";
 import { Grid, Flex, Box } from "@radix-ui/themes";
+import "./background.css"
+
 
 export function RootLayout({ children }) {
     return (
@@ -11,6 +13,7 @@ export function RootLayout({ children }) {
             </Box>
 
             <Box >
+                <div className="bg"/>
                 <main>
                     {children}
                 </main>

@@ -1,0 +1,33 @@
+{
+    "menus": [
+        {
+            "item": "Home"
+        },
+        {
+            "item": "Sobre mim"
+        },
+        {
+            "item": "Experiências"
+        },
+        {
+            "item": "Tecnologias"
+        },
+        {
+            "item": "Contato"
+        }
+    ],
+    "generic": {
+        "knowmore": "saiba mais"
+    },
+    "pages": {
+        "aboutme": {
+            "title": "Sobre mim",
+            "part-1": "Pode me chamar de Iago, sou desenvolvedor fullstack desde o início de minha carreira que começou em 2019, neste período venho acumulando experiência na implementação de soluções para diversos setores do mercado, já passei por CRM, Software de Gestão Portuária, E-commerce, Marketing, Conformidade de Software para o governo de Portugal, ERP dentre outros.",
+            "part-2": "Formado em Análise e Desenvolvimento de Sistemas pela UNISC (Universidade de Santa Cruz do Sul), minha base se dá pelo negócio e suas atribuições, tornando a tecnologia o meio no qual atingimos o objetivo final. Tecnicamente gosto de trabalhar com aquilo que faz sentido para o projeto, podendo ou não trazer novos desafios que de qualquer forma irão contribuir para minha tragetória profissional.",
+            "part-3": "Busco compreender a necessidade de meus parceiros para traduzir da melhor forma possível em código, sendo essa uma premissa que sigo fielmente.",
+            "part-4": "Divido minhas habilidades em duas segmentações, a primeira o Backend, com Java como minha principal linguagem, e o Frontend, no qual estou habituado a trabalhar com diversos frameworks JavaScript, podendo ser Angular, Vue ou React.",
+            "part-5": "Espero ter-lhe agradado caro leitor, estou sempre aberto a novas propostas de projetos e ofertas, se for de seu interesse pode entrar em "
+
+        }
+    }
+}
