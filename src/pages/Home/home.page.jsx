@@ -13,19 +13,15 @@ export function HomePage() {
                     <div className="flex items-center justify-center h-auto mb-4 rounded ">
                         <Card size="4" className="w-full !backdrop-blur-sm !bg-white/10">
                             <Flex gap="3" align="center">
-                                <Avatar
-                                    size="7"
-                                    src="https://scontent.fpoa13-1.fna.fbcdn.net/v/t39.30808-6/399565841_6785281861555027_7736682493382493443_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeHVhgz1Nwsec906fo6YtSfYxK--sQP8bUPEr76xA_xtQ8jTUvb_4IHMGH1qN8eKPIhQ9rfmqsHadtNTWAoDlMM-&_nc_ohc=uP_FvVZEtRMAX-TNaWF&_nc_ht=scontent.fpoa13-1.fna&oh=00_AfCuf7AF2-PdOgCEMt_X8-jIEeY5TAUnpeIA_v9Pst_lZw&oe=65DC61B0"
-                                    fallback="T"
-                                />
-                                <Box>
+
+                                <Box >
                                     <Text as="div" size="6" weight="bold" className="text-[var(--dracula-fg)] text-2xl">
                                         Alzemiro Iago de M. Thomaz
                                     </Text>
-                                    <Text as="div" size="4" className="text-[var(--dracula-fg)]">
+                                    <Text as="div" size="4" className="text-[var(--dracula-fg)] py-2">
                                         Full Stack Developer
                                     </Text>
-                                    <Flex gap="2" wrap={"wrap"}>
+                                    <Flex gap="2" wrap={"wrap"} >
                                         {badges.map((item, index) =><Badge color="indigo" variant="surface" key={`'${index + item}'`}>{item}</Badge>)}
                                     </Flex>
                                 </Box>
@@ -48,7 +44,7 @@ export function HomePage() {
                                         {t('pages.aboutme.part-2')}...
                                     </Text>
                                     <Box className="float-righ">
-                                        <Link className="float-right">{t('generic.knowmore')}</Link>
+                                        <Link className="float-right" href="/about-me">{t('generic.knowmore')}</Link>
                                     </Box>
 
                                 </Flex>

@@ -1,4 +1,5 @@
-import { HomeIcon, PersonIcon, ActivityLogIcon, Link1Icon, EnvelopeClosedIcon } from '@radix-ui/react-icons'
+import * as Separator from '@radix-ui/react-separator';
+import { HomeIcon, PersonIcon, ActivityLogIcon, Link1Icon, EnvelopeClosedIcon, LinkedInLogoIcon, GitHubLogoIcon, InstagramLogoIcon } from '@radix-ui/react-icons'
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -7,7 +8,9 @@ export default function Sidebar() {
     const catMenu = useRef(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuItens = t('menus', { returnObjects: true });
-    const icons = [<HomeIcon/>, <PersonIcon/>, <ActivityLogIcon/>, <Link1Icon/>, <EnvelopeClosedIcon/> ]
+    const socialItens = t('social', { returnObjects: true });
+    const icons = [<HomeIcon />, <PersonIcon />, <ActivityLogIcon />, <Link1Icon />, <EnvelopeClosedIcon />]
+    const socialIcons = [<LinkedInLogoIcon />, <GitHubLogoIcon />, <InstagramLogoIcon />]
 
 
     const handleClick = (e) => {
@@ -30,17 +33,30 @@ export default function Sidebar() {
             <aside id="default-sidebar" ref={catMenu} className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full ${!isMenuOpen ? "sm:translate-x-0" : "translate-x-0"}`} aria-label="Sidebar">
                 <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                     <ul className="space-y-2 font-medium">
-                        {menuItens.map(({item, href}, index) =>
-                                <li key={`'${index+item}'`}>
-                                    <a href={href} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                                        {icons[index]}
+                        {menuItens.map(({ item, href }, index) =>
+                            <li key={`'${index + item}'`}>
+                                <a href={href} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                    {icons[index]}
+                                    <span className="ms-3">{item}</span>
+                                </a>
+                            </li>
+                        )}
+
+                    </ul>                   
+                    <Separator.Root className="bg-gray-50 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px my-[15px]" />
+                        <ul className="space-y-2 font-medium">
+                            {socialItens.map(({ item, href }, index) =>
+                                <li key={`'${index + item}'`}>
+                                    <a href={href} target="_blank" className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                        {socialIcons[index]}
                                         <span className="ms-3">{item}</span>
                                     </a>
                                 </li>
-                        )}
+                            )}
 
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                
             </aside>
         </>
     );

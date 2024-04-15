@@ -2,29 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+    .clip-test {
+
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dashoffset: 1000;
+        }
+    }
+    .animated-dotted-border {
+        position: relative;
+    }
+
+    .animated-dotted-border::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border: 2px dotted transparent;
+        animation: pulse 2s linear infinite;
+    }
+
+}
+
 @layer base {
 
-  :root {
-    --dracula-bg: #282a36;
-    --dracula-fg: #f8f8f2;
-    --dracula-accent: #ff5555;
-    --dracula-subtle: #44475a;
-    --dracula-border: #383a42;
 
-    /* Cores adicionais */
+    :root {
+        --dracula-bg: #282a36;
+        --dracula-fg: #f8f8f2;
+        --dracula-accent: #ff5555;
+        --dracula-subtle: #44475a;
+        --dracula-border: #383a42;
 
-    --dracula-red: #ff5555;
-    --dracula-orange: #ffb86c;
-    --dracula-yellow: #f1fa8c;
-    --dracula-green: #50fa7b;
-    --dracula-teal: #8be9fd;
-    --dracula-blue: #8cd4f5;
-    --dracula-purple: #bf94ff;
-    --dracula-pink: #ff79c6;
-  }
+        /* Cores adicionais */
 
-  body {
-      background-color: var(--dracula-bg) !important;
-  }
+        --dracula-red: #ff5555;
+        --dracula-orange: #ffb86c;
+        --dracula-yellow: #f1fa8c;
+        --dracula-green: #50fa7b;
+        --dracula-teal: #8be9fd;
+        --dracula-blue: #8cd4f5;
+        --dracula-purple: #bf94ff;
+        --dracula-pink: #ff79c6;
+    }
+
+    body {
+        background-color: var(--dracula-bg) !important;
+    }
 
 }

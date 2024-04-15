@@ -21,6 +21,20 @@
             "href": "/contact"
         }
     ],
+    "social": [
+        {
+            "item": "Linkedin",
+            "href": "https://www.linkedin.com/in/alzemirot/"
+        },
+        {
+            "item": "Github",
+            "href": "https://github.com/Alzemiro"
+        },
+        {
+            "item": "Instagram",
+            "href": "https://www.instagram.com/iagomthomaz/"
+        }
+    ],
     "generic": {
         "knowmore": "saiba mais"
     },

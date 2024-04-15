@@ -1,6 +1,6 @@
 import Footer from "../components/footer.component.jsx";
 import Sidebar from "../components/sidebar.component.jsx";
-import { Grid, Flex, Box } from "@radix-ui/themes";
+import { Box } from "@radix-ui/themes";
 import "./background.css"
 
 
