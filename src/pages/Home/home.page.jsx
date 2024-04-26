@@ -1,4 +1,4 @@
-import {Card, Flex, Avatar, Box, Text, Badge, Link} from '@radix-ui/themes'
+import {Card, Flex,  Box, Text, Badge, Link} from '@radix-ui/themes'
 import {Fade} from "../../components/fadein.componet.jsx";
 import {useTranslation} from "react-i18next";
 
@@ -43,7 +43,7 @@ export function HomePage() {
                                     <Text as="p" size="2" className="text-[var(--dracula-fg)]">
                                         {t('pages.aboutme.part-2')}...
                                     </Text>
-                                    <Box className="float-righ">
+                                    <Box className="float-right">
                                         <Link className="float-right" to="/about-me">{t('generic.knowmore')}</Link>
                                     </Box>
 

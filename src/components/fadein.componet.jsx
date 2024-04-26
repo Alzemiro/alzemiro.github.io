@@ -8,7 +8,7 @@ export function Fade({ children, isActive, direction }){
                     initial={{ opacity: 0, x: direction === "left" ? "-100%" : "100%" }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: direction === "left" ? "-100%" : "100%" }}
-                    transition={{ delay: 2, duration: 0.8 }}
+                    transition={{ delay: 1, duration: 0.8 }}
                 >
                     {children}
                 </motion.div>
