@@ -44,7 +44,7 @@ export function HomePage() {
                                         {t('pages.aboutme.part-2')}...
                                     </Text>
                                     <Box className="float-righ">
-                                        <Link className="float-right" href="/about-me">{t('generic.knowmore')}</Link>
+                                        <Link className="float-right" to="/about-me">{t('generic.knowmore')}</Link>
                                     </Box>
 
                                 </Flex>
