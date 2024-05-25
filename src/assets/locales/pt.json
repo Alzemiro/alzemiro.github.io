@@ -2,7 +2,7 @@
     "menus": [
         {
             "item": "Home",
-            "href": "/portfolio/home"
+            "href": "/portfolio/"
         },
         {
             "item": "Sobre mim",
