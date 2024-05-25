@@ -2,6 +2,7 @@ import * as Separator from '@radix-ui/react-separator';
 import { HomeIcon, PersonIcon, ActivityLogIcon, Link1Icon, EnvelopeClosedIcon, LinkedInLogoIcon, GitHubLogoIcon, InstagramLogoIcon } from '@radix-ui/react-icons'
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
     const { t } = useTranslation();
@@ -35,10 +36,10 @@ export default function Sidebar() {
                     <ul className="space-y-2 font-medium">
                         {menuItens.map(({ item, href }, index) =>
                             <li key={`'${index + item}'`}>
-                                <a href={href} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                                <Link to={href} className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                     {icons[index]}
                                     <span className="ms-3">{item}</span>
-                                </a>
+                                </Link>
                             </li>
                         )}
 

@@ -4,9 +4,7 @@ import { Theme } from "@radix-ui/themes"
 function App() {
     return (
         <Theme scaling="95%">
-            <RootLayout>
-
-            </RootLayout>
+            <RootLayout />
         </Theme>
     )
 }
