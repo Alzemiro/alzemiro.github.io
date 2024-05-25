@@ -10,20 +10,22 @@ import {AboutMe} from "./pages/AboutMe/aboutme.page.jsx";
 
 const router = createBrowserRouter([
     {
-        path: "/portfolio",
+        path: "/",
         element: <ApiProvider/>,
         children: [
             {
-                path: "/portfolio/",
+                path: "/",
                 element: <HomePage/>
             },
             {
-                path: "/portfolio/about-me",
+                path: "/about-me",
                 element: <AboutMe/>
             }],
 
     },
 ]);
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router}/>

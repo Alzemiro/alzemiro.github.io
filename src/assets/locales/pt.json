@@ -2,23 +2,23 @@
     "menus": [
         {
             "item": "Home",
-            "href": "/portfolio/"
+            "href": "/"
         },
         {
             "item": "Sobre mim",
-            "href": "/portfolio/about-me"
+            "href": "/about-me"
         },
         {
             "item": "Experiências",
-            "href": "/portfolio/experiences"
+            "href": "/experiences"
         },
         {
             "item": "Tecnologias",
-            "href": "/portfolio/tech"
+            "href": "/tech"
         },
         {
             "item": "Contato",
-            "href": "/portfolio/contact"
+            "href": "/contact"
         }
     ],
     "social": [

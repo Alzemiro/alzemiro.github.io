@@ -9,7 +9,6 @@ export const ApiProvider = () => {
 
     const value = useMemo(() => ({}), []);
 
-
     return (
         <ApiContext.Provider value={value}>
             <Theme scaling="95%">
