@@ -1,5 +1,5 @@
 import {Fade} from "../../components/fadein.componet";
-import {Card, Flex, Box, Text} from "@radix-ui/themes"
+import {Box, Text} from "@radix-ui/themes"
 import {useTranslation} from "react-i18next";
 
 export function AboutMe() {
