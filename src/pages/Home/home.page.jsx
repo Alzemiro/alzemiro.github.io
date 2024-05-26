@@ -1,6 +1,7 @@
-import {Card, Flex,  Box, Text, Badge, Link} from '@radix-ui/themes'
+import {Card, Flex,  Box, Text, Badge} from '@radix-ui/themes'
 import {Fade} from "../../components/fadein.componet.jsx";
 import {useTranslation} from "react-i18next";
+import ButtonPortifolio from '../../components/shared/buttonportifolio.component.jsx';
 
 export function HomePage() {
     const badges = ["JAVA", "JS", "SPRING BOOT", "NODE", "REACT", "VUE"]
@@ -38,13 +39,10 @@ export function HomePage() {
                                         <strong>{t('pages.aboutme.title')}</strong>
                                     </Text>
                                     <Text as="p" size="2" className="text-[var(--dracula-fg)]">
-                                        {t('pages.aboutme.part-1')}
-                                    </Text>
-                                    <Text as="p" size="2" className="text-[var(--dracula-fg)]">
-                                        {t('pages.aboutme.part-2')}...
-                                    </Text>
+                                        {t('pages.aboutme.part-1')}...
+                                    </Text>                                   
                                     <Box className="float-right">
-                                        <Link className="float-right" to="/about-me">{t('generic.knowmore')}</Link>
+                                        <ButtonPortifolio className='float-right' to='/about-me' text={t('generic.knowmore')} />                                       
                                     </Box>
 
                                 </Flex>

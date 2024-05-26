@@ -9,13 +9,13 @@ export function AboutMe() {
     return (<div className=" sm:ml-64">
             <div className="p-2 container mx-auto ">
                 <Fade isActive direction="left">
-                    <div className="overflow-hidden mt-8 mb-4 rounded w-full !backdrop-blur-sm !bg-white/10">
+                    <div className="overflow-hidden mt-8 mb-4  w-full !backdrop-blur-sm !bg-white/10 rounded rt-reset rt-Card rt-variant-surface">
                         <div className="max-w-7xl mx-auto grid grid-cols-2 ">
                             <Box
                                 className="pb-8 lg:col-span-1 col-span-2 lg:order-1 order-2">
                                 <main
                                     className="mx-auto my-auto text-[var(--dracula-fg)] max-w-7xl sm:mt-12 sm:px-6  lg:my-auto lg:px-8 xl:mt-10">
-                                    <div className="sm:text-center lg:text-left py-10">
+                                    <div className="sm:text-center lg:text-left py-10 px-4">
                                         <h2 className="mb-6 text-2xl tracking-tight font-extrabold text-[var(--dracula-fg)] sm:text-3xl md:text-4xl">
                                             {t('pages.aboutme.title')}
                                         </h2>

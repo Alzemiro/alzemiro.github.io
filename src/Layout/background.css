@@ -11,7 +11,7 @@
   z-index: -30; 
   background-repeat: no-repeat;
   background-size: cover;
-  animation: animatedBackground 5s linear infinite;
+  animation: animatedBackground 8s linear infinite;
   overflow: hidden;
 }
 

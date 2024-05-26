@@ -12,9 +12,8 @@ export function RootLayout({ children }) {
                 <Sidebar />
             </Box>
 
-            <Box >
-                <div className="bg"/>
-                <main>
+            <Box className="bg">
+                <main className="mt-8 md:mt-0">
                     {children}
                 </main>
                 <Footer />
