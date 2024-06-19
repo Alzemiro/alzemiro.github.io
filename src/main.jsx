@@ -12,7 +12,7 @@ import { AboutMe } from "./pages/AboutMe/aboutme.page.jsx";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <ApiProvider value={<HomePage />} />,
+        element: <ApiProvider/>,
         children: [
             {
                 path: "/",
