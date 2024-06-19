@@ -7,14 +7,11 @@ export const ApiContext = React.createContext({});
 
 export const ApiProvider = () => {
 
-    const value = useMemo(() => ({}), []);
-
     return (
-        <ApiContext.Provider value={value}>
+        <ApiContext.Provider>
             <Theme scaling="95%">
             <RootLayout>
-                <Navigate />
-                <Outlet/>
+                <Outlet />
             </RootLayout>
         </Theme>
         </ApiContext.Provider>

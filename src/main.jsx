@@ -11,7 +11,7 @@ import {AboutMe} from "./pages/AboutMe/aboutme.page.jsx";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <ApiProvider/>,
+        element: <ApiProvider value={<HomePage/>}/>,
         children: [
             {
                 path: "/",
