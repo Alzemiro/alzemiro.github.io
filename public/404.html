@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>React Router</title>
-    <script type="text/javascript">
+<head>
+  <meta charset="utf-8">
+  <title>Redirect</title>
+  <script type="text/javascript">
+    // Verifica se a página realmente não foi encontrada (status 404)
+    if (document.title === 'Redirect') {
       // Obtém a URL original, incluindo o hash e o caminho
-    const originalUrl = window.location.href;
+      const originalUrl = window.location.href;
 
-    // Constrói a URL de redirecionamento com o hash e o caminho
-    const redirectUrl = window.location.pathname !== '/' && window.location.origin + '/#' + window.location.pathname + window.location.search;
+      // Constrói a URL de redirecionamento com o hash e o caminho
+      const redirectUrl = window.location.origin + '/#' + window.location.pathname + window.location.search;
 
-    // Redireciona para a página inicial com o hash e o caminho
-    window.location.replace(redirectUrl);
-    </script>
-  </head>
-  <body></body>
+      // Redireciona para a página inicial com o hash e o caminho
+      window.location.replace(redirectUrl);
+    } else {
+      // Se não for 404, remove o hash da URL
+      const path = window.location.pathname + window.location.search;
+      window.history.pushState(null, null, path);
+    }
+  </script>
+</head>
+<body>
+</body>
 </html>
