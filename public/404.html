@@ -8,7 +8,7 @@
     const originalUrl = window.location.href;
 
     // Constrói a URL de redirecionamento com o hash e o caminho
-    const redirectUrl = window.location.origin + '/#' + window.location.pathname + window.location.search;
+    const redirectUrl = window.location.pathname !== '/' && window.location.origin + '/#' + window.location.pathname + window.location.search;
 
     // Redireciona para a página inicial com o hash e o caminho
     window.location.replace(redirectUrl);
