@@ -55,6 +55,13 @@ const { locale } = Astro.props;
               <Badge text={tech} variant="default" size="sm" />
             ))}
           </div>
+
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="projects__card-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {locale === 'pt' ? 'Ver no GitHub' : 'View on GitHub'}
+            </a>
+          )}
         </article>
       ))}
     </div>
@@ -134,7 +141,22 @@ const { locale } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     gap: 0.375rem;
-    margin-top: auto;
+  }
+
+  .projects__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: all var(--transition-fast);
+  }
+
+  .projects__card-link:hover {
+    color: var(--color-accent-secondary);
   }
 
   @media (max-width: 768px) {
