@@ -9,14 +9,12 @@ interface Props {
 
 const { locale, currentUrl } = Astro.props;
 const alternateLocale: Locale = locale === 'pt' ? 'en' : 'pt';
-const alternateUrl = getAlternateUrl(new URL(currentUrl), alternateLocale);
-const alternateLabel = alternateLocale === 'pt' ? 'PT' : 'EN';
-const currentLabel = locale === 'pt' ? 'PT' : 'EN';
+const alternatePath = getAlternateUrl(new URL(currentUrl), alternateLocale);
 ---
 
 <div class="lang-switcher">
   <a
-    href={locale === 'pt' ? '#' : alternateUrl.href}
+    href={locale === 'pt' ? alternatePath : '#'}
     class={`lang-switcher__link ${locale === 'pt' ? 'lang-switcher__link--active' : ''}`}
     aria-current={locale === 'pt' ? 'page' : undefined}
   >
@@ -24,7 +22,7 @@ const currentLabel = locale === 'pt' ? 'PT' : 'EN';
   </a>
   <span class="lang-switcher__divider">/</span>
   <a
-    href={locale === 'en' ? '#' : alternateUrl.href}
+    href={locale === 'en' ? alternatePath : '#'}
     class={`lang-switcher__link ${locale === 'en' ? 'lang-switcher__link--active' : ''}`}
     aria-current={locale === 'en' ? 'page' : undefined}
   >
@@ -61,5 +59,6 @@ const currentLabel = locale === 'pt' ? 'PT' : 'EN';
   .lang-switcher__link--active {
     color: var(--color-accent);
     background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    pointer-events: none;
   }
 </style>

@@ -201,6 +201,81 @@ code, pre {
   background-size: 60px 60px;
 }
 
+/* ===== Animated Background ===== */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.animated-bg::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(45, 212, 168, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(140, 164, 184, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(45, 212, 168, 0.05) 0%, transparent 50%);
+  animation: driftBg 25s ease-in-out infinite;
+}
+
+.animated-bg::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at 70% 60%, rgba(45, 212, 168, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 30%, rgba(140, 164, 184, 0.04) 0%, transparent 45%);
+  animation: driftBg2 35s ease-in-out infinite;
+}
+
+@keyframes driftBg {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(5%, -3%) rotate(1deg); }
+  66% { transform: translate(-3%, 5%) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes driftBg2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-4%, 4%) rotate(-1.5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@media (min-width: 650px) {
+  .animated-bg::before {
+    animation-duration: 120s;
+  }
+  .animated-bg::after {
+    animation-duration: 150s;
+  }
+}
+
+/* Light mode adjustments */
+:root[data-theme="light"] .animated-bg::before {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(15, 155, 118, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(90, 122, 143, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(15, 155, 118, 0.04) 0%, transparent 50%);
+}
+
+:root[data-theme="light"] .animated-bg::after {
+  background:
+    radial-gradient(ellipse at 70% 60%, rgba(15, 155, 118, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 30%, rgba(90, 122, 143, 0.03) 0%, transparent 45%);
+}
+
 /* ===== Scroll Reveal ===== */
 .reveal {
   opacity: 0;
