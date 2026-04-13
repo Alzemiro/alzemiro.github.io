@@ -1,0 +1,219 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { t } from '../../i18n/utils';
+import Button from '../atoms/Button.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="hero grid-bg" id="hero">
+  <div class="hero__container section__container">
+    <div class="hero__content">
+      <p class="hero__greeting">{t(locale, 'hero.greeting')}</p>
+      <h1 class="hero__name">{t(locale, 'hero.name')}</h1>
+      <h2 class="hero__role">{t(locale, 'hero.role')}</h2>
+      <p class="hero__tagline">{t(locale, 'hero.tagline')}</p>
+
+      <div class="hero__cta">
+        <Button href={`/${locale}/#projects`} variant="primary" size="lg">
+          {t(locale, 'hero.ctaWork')}
+        </Button>
+        <Button href="mailto:iagomoraest@gmail.com" variant="secondary" size="lg">
+          {t(locale, 'hero.ctaContact')}
+        </Button>
+      </div>
+
+      <div class="hero__links">
+        <a href="https://github.com/iagomoraes" target="_blank" rel="noopener noreferrer" class="hero__social" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/alzemiroiago" target="_blank" rel="noopener noreferrer" class="hero__social" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:iagomoraest@gmail.com" class="hero__social" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__code">
+      <div class="hero__code-window">
+        <div class="hero__code-header">
+          <span class="hero__code-dot hero__code-dot--red"></span>
+          <span class="hero__code-dot hero__code-dot--yellow"></span>
+          <span class="hero__code-dot hero__code-dot--green"></span>
+          <span class="hero__code-filename">profile.ts</span>
+        </div>
+        <pre class="hero__code-content"><code><span class="hero__code-keyword">const</span> <span class="hero__code-var">alzemiro</span> = &#123;
+  <span class="hero__code-key">role</span>: <span class="hero__code-string">"Tech Lead @ SPMS"</span>,
+  <span class="hero__code-key">domain</span>: <span class="hero__code-string">"Healthcare Systems"</span>,
+  <span class="hero__code-key">architecture</span>: <span class="hero__code-string">"Hexagonal + DDD"</span>,
+  <span class="hero__code-key">location</span>: <span class="hero__code-string">"Brazil → Portugal (remote)"</span>,
+&#125;;</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 72px;
+    position: relative;
+  }
+
+  .hero__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .hero__greeting {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  .hero__name {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero__role {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .hero__tagline {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0.5rem 0;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero__links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-button);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .hero__social:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    transform: translateY(-2px);
+  }
+
+  /* Code snippet */
+  .hero__code {
+    animation: fadeIn 0.8s ease-out 0.3s both;
+  }
+
+  .hero__code-window {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero__code-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface-hover);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero__code-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .hero__code-dot--red { background: #ef4444; }
+  .hero__code-dot--yellow { background: #f59e0b; }
+  .hero__code-dot--green { background: #10b981; }
+
+  .hero__code-filename {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-left: 0.5rem;
+  }
+
+  .hero__code-content {
+    padding: 1.25rem;
+    margin: 0;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  .hero__code-keyword { color: var(--color-accent-secondary); }
+  .hero__code-var { color: var(--color-text); font-weight: 600; }
+  .hero__code-key { color: var(--color-warning); }
+  .hero__code-string { color: var(--color-success); }
+
+  @media (max-width: 768px) {
+    .hero__container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero__code {
+      order: -1;
+    }
+
+    .hero__code-content {
+      font-size: 0.75rem;
+    }
+  }
+</style>

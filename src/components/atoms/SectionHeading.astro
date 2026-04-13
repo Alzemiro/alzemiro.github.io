@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  numbered?: string;
+}
+
+const { title, subtitle, numbered } = Astro.props;
+---
+
+<div class="section-heading">
+  {numbered && <span class="section-heading__number">{numbered}</span>}
+  <h2 class="section-heading__title">{title}</h2>
+  {subtitle && <p class="section-heading__subtitle">{subtitle}</p>}
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: 3rem;
+  }
+
+  .section-heading__number {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-heading__title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-heading__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: var(--text-max);
+    line-height: 1.6;
+  }
+</style>

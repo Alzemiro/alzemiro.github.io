@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Journey",
+    "stack": "Stack",
+    "projects": "Projects",
+    "differentials": "How I think",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Alzemiro Iago",
+    "role": "Full Stack Developer & Tech Lead",
+    "tagline": "I design public healthcare systems. I lead teams that deliver with quality.",
+    "ctaWork": "See my work",
+    "ctaContact": "Get in touch"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "I work remotely for Portugal's Ministry of Health, from Montenegro, RS.",
+    "p1": "I started as a junior developer in 2020 and within four years I took on the technical leadership of a European public healthcare ecosystem. That progression came from focusing on what matters most: solid architecture, code that works in production, and teams with clear direction.",
+    "p2": "At SPMS, I lead 4 developers and I'm responsible for the ELO/PACI architecture — Hexagonal, DDD, BFF, OIDC. I also integrated AI agents into the development cycle to improve code quality and test coverage.",
+    "p3": "I hold a degree in Systems Analysis and Development from UNISC and I'm pursuing a postgraduate degree in Artificial Intelligence. I'm looking for international remote opportunities where I can have significant technical impact.",
+    "badge": "4 years: Junior → Tech Lead",
+    "location": "Montenegro, RS",
+    "available": "International remote",
+    "languages": "PT-BR · EN B2"
+  },
+  "experience": {
+    "title": "What I've built",
+    "present": "today"
+  },
+  "stack": {
+    "title": "What I use daily",
+    "subtitle": "The technologies and patterns that keep the systems I maintain running in production."
+  },
+  "projects": {
+    "title": "In practice",
+    "subtitle": "Concrete problems, architectural decisions, measurable results.",
+    "problem": "The problem",
+    "solution": "What I did",
+    "result": "What changed",
+    "viewDetails": "View details"
+  },
+  "differentials": {
+    "title": "How I think",
+    "subtitle": "The principles that guide my technical decisions."
+  },
+  "contact": {
+    "title": "Let's talk",
+    "subtitle": "Available for remote opportunities where architecture and technical leadership are priorities.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "builtWith": "Built with Astro + Tailwind",
+    "rights": "Alzemiro Iago"
+  }
+}

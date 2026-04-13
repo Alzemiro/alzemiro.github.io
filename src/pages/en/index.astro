@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/organisms/Hero.astro';
+import About from '../../components/organisms/About.astro';
+import Experience from '../../components/organisms/Experience.astro';
+import TechStack from '../../components/organisms/TechStackWrapper.astro';
+import Projects from '../../components/organisms/Projects.astro';
+import Differentials from '../../components/organisms/Differentials.astro';
+import Contact from '../../components/organisms/Contact.astro';
+
+const locale = 'en';
+---
+
+<BaseLayout
+  title="Alzemiro Iago — Full Stack Developer & Tech Lead"
+  description="Full Stack Developer & Tech Lead with 5 years of experience. Architect of public healthcare systems, technical leader, specialist in hexagonal architecture and DDD."
+  locale={locale}
+>
+  <Hero locale={locale} />
+  <About locale={locale} />
+  <Experience locale={locale} />
+  <TechStack locale={locale} />
+  <Projects locale={locale} />
+  <Differentials locale={locale} />
+  <Contact locale={locale} />
+</BaseLayout>

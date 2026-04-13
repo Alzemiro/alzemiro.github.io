@@ -1,0 +1,108 @@
+---
+import type { Locale } from '../../i18n/utils';
+import TechStack from './TechStack.tsx';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<TechStack client:visible locale={locale} />
+
+<style>
+  :global(.stack__filters) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  :global(.stack__filter) {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-button);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  :global(.stack__filter:hover) {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  :global(.stack__filter--active) {
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  :global(.stack__grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+  }
+
+  :global(.stack__item) {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.25rem;
+    transition: all var(--transition-fast);
+  }
+
+  :global(.stack__item:hover) {
+    border-color: var(--color-accent);
+  }
+
+  :global(.stack__item-header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  :global(.stack__item-name) {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  :global(.stack__item-level) {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  :global(.stack__item-bar) {
+    width: 100%;
+    height: 4px;
+    background: var(--color-surface-hover);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  :global(.stack__item-fill) {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s ease-out;
+  }
+
+  :global(.stack__item-fill--expert) {
+    background: var(--color-accent);
+  }
+
+  :global(.stack__item-fill--advanced) {
+    background: var(--color-accent-secondary);
+  }
+
+  :global(.stack__item-fill--intermediate) {
+    background: var(--color-warning);
+  }
+</style>

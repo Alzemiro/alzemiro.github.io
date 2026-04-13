@@ -1,0 +1,145 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { t } from '../../i18n/utils';
+import SectionHeading from '../atoms/SectionHeading.astro';
+import Badge from '../atoms/Badge.astro';
+import { projects } from '../../data/projects';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="section projects reveal" id="projects">
+  <div class="section__container">
+    <SectionHeading
+      title={t(locale, 'projects.title')}
+      subtitle={t(locale, 'projects.subtitle')}
+      numbered="04."
+    />
+
+    <div class="projects__grid">
+      {projects.map((project) => (
+        <article class="projects__card">
+          <div class="projects__card-glow" />
+
+          <h3 class="projects__card-title">
+            {locale === 'pt' ? project.title : (project.titleEn || project.title)}
+          </h3>
+
+          <div class="projects__card-section">
+            <h4 class="projects__card-label">{t(locale, 'projects.problem')}</h4>
+            <p class="projects__card-text">
+              {locale === 'pt' ? project.problem : project.problemEn}
+            </p>
+          </div>
+
+          <div class="projects__card-section">
+            <h4 class="projects__card-label">{t(locale, 'projects.solution')}</h4>
+            <p class="projects__card-text">
+              {locale === 'pt' ? project.solution : project.solutionEn}
+            </p>
+          </div>
+
+          <div class="projects__card-section">
+            <h4 class="projects__card-label">{t(locale, 'projects.result')}</h4>
+            <p class="projects__card-text">
+              {locale === 'pt' ? project.result : project.resultEn}
+            </p>
+          </div>
+
+          <div class="projects__card-tech">
+            {project.tech.map((tech) => (
+              <Badge text={tech} variant="default" size="sm" />
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .projects__card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: all var(--transition-base);
+    overflow: hidden;
+  }
+
+  .projects__card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .projects__card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-secondary));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .projects__card:hover .projects__card-glow {
+    opacity: 1;
+  }
+
+  .projects__card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .projects__card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .projects__card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  .projects__card-text {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .projects__card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: auto;
+  }
+
+  @media (max-width: 768px) {
+    .projects__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

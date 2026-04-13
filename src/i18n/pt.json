@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "experience": "Trajetória",
+    "stack": "Stack",
+    "projects": "Projetos",
+    "differentials": "Como penso",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Olá, sou",
+    "name": "Alzemiro Iago",
+    "role": "Full Stack Developer & Tech Lead",
+    "tagline": "Projeto sistemas de saúde pública. Lidero equipes que entregam com qualidade.",
+    "ctaWork": "Ver meu trabalho",
+    "ctaContact": "Falar comigo"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "subtitle": "Trabalho remotamente para o Ministério da Saúde de Portugal, desde Montenegro, RS.",
+    "p1": "Comecei como desenvolvedor júnior em 2020 e em quatro anos assumi a liderança técnica de um ecossistema de saúde pública europeu. Essa progressão veio de focar nos problemas que mais importam: arquitetura sólida, código que funciona em produção e equipes com direção clara.",
+    "p2": "Na SPMS, lidero 4 desenvolvedores e fui responsável pela arquitetura do ELO/PACI — Hexagonal, DDD, BFF, OIDC. Também integrei agentes de IA ao ciclo de desenvolvimento para melhorar a qualidade do código e a cobertura de testes.",
+    "p3": "Formado em Análise e Desenvolvimento de Sistemas pela UNISC, cursando pós-graduação em Inteligência Artificial. Busco oportunidades remotas internacionais onde possa ter impacto técnico significativo.",
+    "badge": "4 anos: Júnior → Tech Lead",
+    "location": "Montenegro, RS",
+    "available": "Remoto internacional",
+    "languages": "PT-BR · EN B2"
+  },
+  "experience": {
+    "title": "O que já construí",
+    "present": "hoje"
+  },
+  "stack": {
+    "title": "O que uso no dia a dia",
+    "subtitle": "As tecnologias e padrões que sustentam os sistemas que mantenho em produção."
+  },
+  "projects": {
+    "title": "Na prática",
+    "subtitle": "Problemas concretos, decisões arquiteturais, resultados mensuráveis.",
+    "problem": "O problema",
+    "solution": "O que fiz",
+    "result": "O que mudou",
+    "viewDetails": "Ver detalhes"
+  },
+  "differentials": {
+    "title": "Como eu penso",
+    "subtitle": "Os princípios que guiam minhas decisões técnicas."
+  },
+  "contact": {
+    "title": "Vamos conversar",
+    "subtitle": "Disponível para oportunidades remotas onde arquitetura e liderança técnica sejam prioridade.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "builtWith": "Feito com Astro + Tailwind",
+    "rights": "Alzemiro Iago"
+  }
+}

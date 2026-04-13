@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import type { Locale } from '../i18n/utils';
+import { getTranslations, getAlternateUrl } from '../i18n/utils';
+import Header from '../components/organisms/Header.astro';
+import Footer from '../components/organisms/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+}
+
+const { title, description, locale } = Astro.props;
+const t = getTranslations(locale);
+const alternateLocale = locale === 'pt' ? 'en' : 'pt';
+const alternateUrl = getAlternateUrl(Astro.url, alternateLocale);
+---
+
+<!doctype html>
+<html lang={locale === 'pt' ? 'pt-BR' : 'en'} data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === 'pt' ? 'pt_BR' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'pt' ? 'en_US' : 'pt_BR'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Alternate Language -->
+    <link rel="alternate" hreflang={alternateLocale === 'pt' ? 'pt-BR' : 'en'} href={alternateUrl} />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.1/index.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.1.1/index.min.css" />
+
+    <title>{title}</title>
+
+    <!-- Analytics (Plausible — privacy-first, no cookies) -->
+    <!-- Uncomment when domain is configured: <script defer data-domain="alzemiro.dev" src="https://plausible.io/js/script.js"></script> -->
+
+    <!-- Theme Script (prevent flash) -->
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-nav">
+      {locale === 'pt' ? 'Pular para o conteúdo' : 'Skip to content'}
+    </a>
+    <Header locale={locale} currentUrl={Astro.url.href} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+
+    <!-- Scroll Reveal -->
+    <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -80px 0px', threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => {
+        revealObserver.observe(el);
+      });
+    </script>
+  </body>
+</html>

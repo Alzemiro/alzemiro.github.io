@@ -1,0 +1,289 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { t } from '../../i18n/utils';
+import ThemeToggle from '../atoms/ThemeToggle.astro';
+import LanguageSwitcher from '../atoms/LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+  currentUrl: string;
+}
+
+const { locale, currentUrl } = Astro.props;
+---
+
+<header class="header" id="header">
+  <nav class="header__nav section__container" aria-label="Main navigation">
+    <a href={`/${locale}/`} class="header__logo" aria-label="Home">
+      <span class="header__logo-text">AI</span>
+      <span class="header__logo-name">alzemiro</span>
+    </a>
+
+    <ul class="header__links" id="nav-links">
+      <li><a href={`/${locale}/#about`} class="header__link">{t(locale, 'nav.about')}</a></li>
+      <li><a href={`/${locale}/#experience`} class="header__link">{t(locale, 'nav.experience')}</a></li>
+      <li><a href={`/${locale}/#stack`} class="header__link">{t(locale, 'nav.stack')}</a></li>
+      <li><a href={`/${locale}/#projects`} class="header__link">{t(locale, 'nav.projects')}</a></li>
+      <li><a href={`/${locale}/#differentials`} class="header__link">{t(locale, 'nav.differentials')}</a></li>
+      <li><a href={`/${locale}/#contact`} class="header__link">{t(locale, 'nav.contact')}</a></li>
+    </ul>
+
+    <div class="header__actions">
+      <LanguageSwitcher locale={locale} currentUrl={currentUrl} />
+      <ThemeToggle />
+      <button class="header__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="header__mobile" id="mobile-menu" aria-hidden="true">
+    <ul class="header__mobile-links">
+      <li><a href={`/${locale}/#about`} class="header__mobile-link">{t(locale, 'nav.about')}</a></li>
+      <li><a href={`/${locale}/#experience`} class="header__mobile-link">{t(locale, 'nav.experience')}</a></li>
+      <li><a href={`/${locale}/#stack`} class="header__mobile-link">{t(locale, 'nav.stack')}</a></li>
+      <li><a href={`/${locale}/#projects`} class="header__mobile-link">{t(locale, 'nav.projects')}</a></li>
+      <li><a href={`/${locale}/#differentials`} class="header__mobile-link">{t(locale, 'nav.differentials')}</a></li>
+      <li><a href={`/${locale}/#contact`} class="header__mobile-link">{t(locale, 'nav.contact')}</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background-color var(--transition-base), backdrop-filter var(--transition-base);
+  }
+
+  .header.scrolled {
+    background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .header__logo-text {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-badge);
+  }
+
+  .header__logo-name {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-button);
+    transition: all var(--transition-fast);
+  }
+
+  .header__link:hover,
+  .header__link.active {
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-button);
+    background: var(--color-surface);
+    cursor: pointer;
+    gap: 4px;
+    padding: 0;
+  }
+
+  .header__hamburger-line {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--color-text-secondary);
+    border-radius: 1px;
+    transition: all var(--transition-fast);
+  }
+
+  .header__hamburger.open .header__hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .header__hamburger.open .header__hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__hamburger.open .header__hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .header__mobile {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg);
+    padding: 2rem 1.5rem;
+    z-index: 99;
+  }
+
+  .header__mobile.open {
+    display: block;
+  }
+
+  .header__mobile-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .header__mobile-link {
+    display: block;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-button);
+    transition: all var(--transition-fast);
+  }
+
+  .header__mobile-link:hover {
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  @media (max-width: 768px) {
+    .header__links {
+      display: none;
+    }
+
+    .header__hamburger {
+      display: flex;
+    }
+
+    .header__mobile {
+      display: none;
+    }
+
+    .header__mobile.open {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > 10) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu?.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    mobileMenu?.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.header__mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('open');
+      mobileMenu?.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  // Scroll spy
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.header__link');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${entry.target.id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(section => observer.observe(section));
+</script>

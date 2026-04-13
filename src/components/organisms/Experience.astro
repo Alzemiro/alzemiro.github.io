@@ -1,0 +1,193 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { t } from '../../i18n/utils';
+import SectionHeading from '../atoms/SectionHeading.astro';
+import Badge from '../atoms/Badge.astro';
+import { experiences } from '../../data/experience';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="section experience reveal" id="experience">
+  <div class="section__container">
+    <SectionHeading
+      title={t(locale, 'experience.title')}
+      numbered="02."
+    />
+
+    <div class="experience__timeline">
+      {experiences.map((exp, index) => (
+        <div class="experience__item" style={`animation-delay: ${index * 0.15}s`}>
+          <div class="experience__connector">
+            <div class="experience__dot" />
+            {index < experiences.length - 1 && <div class="experience__line" />}
+          </div>
+
+          <div class="experience__card">
+            <div class="experience__header">
+              <div>
+                <h3 class="experience__role">{exp.role}</h3>
+                <p class="experience__company">{exp.company}</p>
+              </div>
+              <div class="experience__meta">
+                <span class="experience__period">{exp.period}</span>
+                <span class="experience__location">{exp.location}</span>
+              </div>
+            </div>
+
+            <ul class="experience__highlights">
+              {exp.highlights.map((highlight) => (
+                <li class="experience__highlight">{highlight}</li>
+              ))}
+            </ul>
+
+            <div class="experience__tech">
+              {exp.tech.map((tech) => (
+                <Badge text={tech} variant="default" size="sm" />
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .experience__item {
+    display: flex;
+    gap: 1.5rem;
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .experience__connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  .experience__dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 1.75rem;
+  }
+
+  .experience__line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+    margin: 0.5rem 0;
+  }
+
+  .experience__card {
+    flex: 1;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .experience__card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .experience__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .experience__role {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .experience__company {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    margin: 0.25rem 0 0;
+  }
+
+  .experience__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .experience__period {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .experience__location {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .experience__highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .experience__highlight {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .experience__highlight::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.75rem;
+  }
+
+  .experience__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  @media (max-width: 768px) {
+    .experience__header {
+      flex-direction: column;
+    }
+
+    .experience__meta {
+      align-items: flex-start;
+    }
+  }
+</style>
