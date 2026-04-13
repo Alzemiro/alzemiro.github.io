@@ -54,7 +54,7 @@
     "github": "GitHub"
   },
   "footer": {
-    "builtWith": "Feito com Astro + Tailwind",
+    "builtWith": "",
     "rights": "Alzemiro Iago"
   }
 }
