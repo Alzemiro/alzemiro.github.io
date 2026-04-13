@@ -11,18 +11,17 @@
     "greeting": "Hello, I'm",
     "name": "Alzemiro Iago",
     "role": "Full Stack Developer & Tech Lead",
-    "tagline": "I design public healthcare systems. I lead teams that deliver with quality.",
+    "tagline": "I design systems people depend on. I lead teams that deliver with quality.",
     "ctaWork": "See my work",
     "ctaContact": "Get in touch"
   },
   "about": {
     "title": "About me",
-    "subtitle": "I work remotely for Portugal's Ministry of Health, from Montenegro, RS.",
-    "p1": "I started as a junior developer in 2020 and within four years I took on the technical leadership of a European public healthcare ecosystem. That progression came from focusing on what matters most: solid architecture, code that works in production, and teams with clear direction.",
-    "p2": "At SPMS, I lead 4 developers and I'm responsible for the ELO/PACI architecture — Hexagonal, DDD, BFF, OIDC. I also integrated AI agents into the development cycle to improve code quality and test coverage.",
-    "p3": "I hold a degree in Systems Analysis and Development from UNISC and I'm pursuing a postgraduate degree in Artificial Intelligence. I'm looking for international remote opportunities where I can have significant technical impact.",
-    "badge": "4 years: Junior → Tech Lead",
-    "location": "Montenegro, RS",
+    "subtitle": "",
+    "p1": "I'm a software engineer focused on system architecture and technical leadership. In five years, I went from junior developer to tech lead — not by accumulating time, but by consistently taking on the problems others avoided: broken auth, directionless monoliths, teams without technical criteria. I've built and shipped production systems serving thousands of users, from public healthcare platforms to critical port operations.",
+    "p2": "Today my focus is at the intersection of software architecture and artificial intelligence — not AI as a buzzword, but as a concrete tool to improve code quality and test coverage in the development cycle. I'm looking for opportunities where architecture, technical leadership, and real impact are priorities.",
+    "badge": "5 years of experience",
+    "location": "",
     "available": "International remote",
     "languages": "PT-BR · EN B2"
   },
@@ -49,7 +48,7 @@
   "contact": {
     "title": "Let's talk",
     "subtitle": "Available for remote opportunities where architecture and technical leadership are priorities.",
-    "email": "Send message",
+    "email": "Email",
     "linkedin": "LinkedIn",
     "github": "GitHub"
   },

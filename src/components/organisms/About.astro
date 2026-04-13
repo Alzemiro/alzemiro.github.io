@@ -20,14 +20,11 @@ const { locale } = Astro.props;
 
     <div class="about__grid">
       <div class="about__text">
-        <p class="about__subtitle">{t(locale, 'about.subtitle')}</p>
         <p class="about__p">{t(locale, 'about.p1')}</p>
         <p class="about__p">{t(locale, 'about.p2')}</p>
-        <p class="about__p">{t(locale, 'about.p3')}</p>
 
         <div class="about__badges">
           <Badge text={t(locale, 'about.badge')} variant="accent" size="md" />
-          <Badge text={t(locale, 'about.location')} variant="default" size="md" />
           <Badge text={t(locale, 'about.available')} variant="success" size="md" />
           <Badge text={t(locale, 'about.languages')} variant="default" size="md" />
         </div>
