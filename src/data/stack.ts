@@ -1,4 +1,4 @@
-export type StackCategory = 'backend' | 'frontend' | 'cloud' | 'architecture' | 'ai';
+export type StackCategory = 'backend' | 'frontend' | 'cloud' | 'database' | 'architecture' | 'ai';
 
 export interface TechItem {
   name: string;
@@ -10,16 +10,23 @@ export const stackCategories: Record<StackCategory, { label: string; labelEn: st
   backend: { label: 'Backend', labelEn: 'Backend' },
   frontend: { label: 'Frontend', labelEn: 'Frontend' },
   cloud: { label: 'Cloud & DevOps', labelEn: 'Cloud & DevOps' },
+  database: { label: 'Banco de Dados', labelEn: 'Database' },
   architecture: { label: 'Arquitetura', labelEn: 'Architecture' },
   ai: { label: 'IA', labelEn: 'AI' },
 };
 
 export const techStack: TechItem[] = [
   // Backend
-  { name: 'Java 17', category: 'backend', level: 'expert' },
+  { name: 'Java', category: 'backend', level: 'expert' },
   { name: 'Spring Boot 3', category: 'backend', level: 'expert' },
   { name: 'JPA/Hibernate', category: 'backend', level: 'advanced' },
   { name: 'SQL', category: 'backend', level: 'advanced' },
+
+  // Database
+  { name: 'Redis', category: 'database', level: 'advanced' },
+  { name: 'Valkey', category: 'database', level: 'advanced' },
+  { name: 'Oracle', category: 'database', level: 'advanced' },
+  { name: 'PostgreSQL', category: 'database', level: 'intermediate' },
 
   // Frontend
   { name: 'React 18', category: 'frontend', level: 'expert' },
@@ -33,6 +40,9 @@ export const techStack: TechItem[] = [
   { name: 'AWS S3', category: 'cloud', level: 'advanced' },
   { name: 'Docker', category: 'cloud', level: 'advanced' },
   { name: 'Kubernetes', category: 'cloud', level: 'intermediate' },
+  { name: 'Cloud Native', category: 'cloud', level: 'advanced' },
+  { name: 'ArgoCD', category: 'cloud', level: 'intermediate' },
+  { name: 'MinIO', category: 'cloud', level: 'intermediate' },
   { name: 'GitLab CI', category: 'cloud', level: 'advanced' },
   { name: 'Jenkins', category: 'cloud', level: 'intermediate' },
 
