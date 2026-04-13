@@ -31,8 +31,15 @@ const { locale } = Astro.props;
       </div>
 
       <div class="about__image">
-        <div class="about__image-placeholder">
-          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="about__photo-wrapper">
+          <img
+            src="/images/20250519_122224.jpg"
+            alt="Alzemiro Iago"
+            class="about__photo"
+            width="280"
+            height="340"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -77,17 +84,31 @@ const { locale } = Astro.props;
     flex-shrink: 0;
   }
 
-  .about__image-placeholder {
+  .about__photo-wrapper {
     width: 280px;
     height: 340px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-muted);
     overflow: hidden;
+    border: 2px solid var(--color-border);
+    position: relative;
+    transition: border-color var(--transition-base);
+  }
+
+  .about__photo-wrapper:hover {
+    border-color: var(--color-accent);
+  }
+
+  .about__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: contrast(1.05) brightness(1.02) saturate(0.9);
+    transition: filter var(--transition-base);
+  }
+
+  .about__photo-wrapper:hover .about__photo {
+    filter: contrast(1.08) brightness(1.04) saturate(0.95);
   }
 
   @media (max-width: 768px) {
@@ -101,9 +122,9 @@ const { locale } = Astro.props;
       justify-content: center;
     }
 
-    .about__image-placeholder {
-      width: 200px;
-      height: 240px;
+    .about__photo-wrapper {
+      width: 220px;
+      height: 270px;
     }
   }
 </style>
