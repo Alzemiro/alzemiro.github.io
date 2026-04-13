@@ -10,11 +10,11 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<section class="hero grid-bg" id="hero">
+<section class="hero" id="hero">
   <div class="hero__container section__container">
     <div class="hero__content">
       <p class="hero__greeting">{t(locale, 'hero.greeting')}</p>
-      <h1 class="hero__name">{t(locale, 'hero.name')}</h1>
+      <h1 class="hero__name"><span class="hero__name-text" id="hero-typing"></span><span class="hero__cursor">|</span></h1>
       <h2 class="hero__role">{t(locale, 'hero.role')}</h2>
       <p class="hero__tagline">{t(locale, 'hero.tagline')}</p>
 
@@ -95,10 +95,18 @@ const { locale } = Astro.props;
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin: 0;
-    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
+  }
+
+  .hero__cursor {
+    color: var(--color-accent);
+    font-weight: 300;
+    animation: blink 0.7s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   .hero__role {
@@ -218,3 +226,24 @@ const { locale } = Astro.props;
     }
   }
 </style>
+
+<script define:vars={{ name: t(locale, 'hero.name') }}>
+  const el = document.getElementById('hero-typing');
+  if (el) {
+    function typeLoop() {
+      let i = 0;
+      el.textContent = '';
+      function type() {
+        if (i < name.length) {
+          el.textContent += name.charAt(i);
+          i++;
+          setTimeout(type, 80);
+        } else {
+          setTimeout(typeLoop, 8000);
+        }
+      }
+      setTimeout(type, 400);
+    }
+    typeLoop();
+  }
+</script>

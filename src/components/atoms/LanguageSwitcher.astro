@@ -14,7 +14,7 @@ const alternatePath = getAlternateUrl(new URL(currentUrl), alternateLocale);
 
 <div class="lang-switcher">
   <a
-    href={locale === 'pt' ? alternatePath : '#'}
+    href="/pt/"
     class={`lang-switcher__link ${locale === 'pt' ? 'lang-switcher__link--active' : ''}`}
     aria-current={locale === 'pt' ? 'page' : undefined}
   >
@@ -22,7 +22,7 @@ const alternatePath = getAlternateUrl(new URL(currentUrl), alternateLocale);
   </a>
   <span class="lang-switcher__divider">/</span>
   <a
-    href={locale === 'en' ? alternatePath : '#'}
+    href="/en/"
     class={`lang-switcher__link ${locale === 'en' ? 'lang-switcher__link--active' : ''}`}
     aria-current={locale === 'en' ? 'page' : undefined}
   >
