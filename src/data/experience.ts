@@ -16,7 +16,7 @@ export const experiences: Experience[] = [
     location: 'Portugal (Remoto)',
     current: true,
     highlights: [
-      'Liderança técnica de 4 desenvolvedores no ecossistema ELO/PACI — da definição arquitetural ao deploy em produção',
+      'Liderança técnica da equipe de desenvolvimento no ecossistema ELO/PACI — da definição arquitetural ao deploy em produção',
       'Projeto e implementação de autenticação BFF com Opaque Tokens (OIDC), substituindo o sistema anterior fragmentado',
       'Arquitetura Hexagonal + DDD com API Gateway, Circuit Breaker e CQRS como padrões de projeto do ecossistema',
       'Integração de agentes de IA no SDLC para análise de código e geração de testes, elevando a cobertura e a qualidade',
