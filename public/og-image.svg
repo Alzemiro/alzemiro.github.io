@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080c0e"/>
+      <stop offset="100%" style="stop-color:#111820"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2dd4a8"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid dots pattern -->
+  <g opacity="0.08">
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.5" fill="#2dd4a8"/>
+    </pattern>
+    <rect width="1200" height="630" fill="url(#dots)"/>
+  </g>
+
+  <!-- Accent line -->
+  <rect x="80" y="245" width="60" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- Name -->
+  <text x="80" y="310" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-size="72" font-weight="700" fill="#f1f5f9" letter-spacing="-2">
+    Alzemiro Iago
+  </text>
+
+  <!-- Role -->
+  <text x="80" y="370" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-size="28" font-weight="500" fill="#8ca4b8">
+    Full Stack Developer &amp; Tech Lead
+  </text>
+
+  <!-- Tags -->
+  <g transform="translate(80, 420)">
+    <rect x="0" y="0" width="80" height="32" rx="6" fill="rgba(45,212,168,0.12)" stroke="#2dd4a8" stroke-width="1"/>
+    <text x="40" y="21" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="13" font-weight="600" fill="#2dd4a8" text-anchor="middle">Java</text>
+
+    <rect x="95" y="0" width="95" height="32" rx="6" fill="rgba(45,212,168,0.12)" stroke="#2dd4a8" stroke-width="1"/>
+    <text x="142" y="21" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="13" font-weight="600" fill="#2dd4a8" text-anchor="middle">React</text>
+
+    <rect x="205" y="0" width="120" height="32" rx="6" fill="rgba(45,212,168,0.12)" stroke="#2dd4a8" stroke-width="1"/>
+    <text x="265" y="21" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="13" font-weight="600" fill="#2dd4a8" text-anchor="middle">TypeScript</text>
+
+    <rect x="340" y="0" width="145" height="32" rx="6" fill="rgba(45,212,168,0.12)" stroke="#2dd4a8" stroke-width="1"/>
+    <text x="412" y="21" font-family="'JetBrains Mono', 'Cascadia Code', monospace" font-size="13" font-weight="600" fill="#2dd4a8" text-anchor="middle">Spring Boot</text>
+  </g>
+
+  <!-- Code snippet decoration -->
+  <g transform="translate(780, 170)">
+    <rect width="340" height="260" rx="12" fill="#0d1117" stroke="#1e293b" stroke-width="1"/>
+    <!-- Window dots -->
+    <circle cx="24" cy="20" r="6" fill="#ef4444"/>
+    <circle cx="44" cy="20" r="6" fill="#f59e0b"/>
+    <circle cx="64" cy="20" r="6" fill="#10b981"/>
+    <!-- Filename -->
+    <text x="82" y="25" font-family="'JetBrains Mono', monospace" font-size="12" fill="#475569">profile.ts</text>
+    <!-- Code lines -->
+    <text x="20" y="62" font-family="'JetBrains Mono', monospace" font-size="14" fill="#2dd4a8">const</text>
+    <text x="78" y="62" font-family="'JetBrains Mono', monospace" font-size="14" fill="#f1f5f9"> alzemiro</text>
+    <text x="192" y="62" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8"> = {</text>
+
+    <text x="36" y="92" font-family="'JetBrains Mono', monospace" font-size="14" fill="#f59e0b">role</text>
+    <text x="72" y="92" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">:</text>
+    <text x="88" y="92" font-family="'JetBrains Mono', monospace" font-size="14" fill="#10b981"> "Tech Lead"</text>
+    <text x="276" y="92" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">,</text>
+
+    <text x="36" y="122" font-family="'JetBrains Mono', monospace" font-size="14" fill="#f59e0b">focus</text>
+    <text x="88" y="122" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">:</text>
+    <text x="104" y="122" font-family="'JetBrains Mono', monospace" font-size="14" fill="#10b981"> "Architecture"</text>
+    <text x="280" y="122" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">,</text>
+
+    <text x="36" y="152" font-family="'JetBrains Mono', monospace" font-size="14" fill="#f59e0b">stack</text>
+    <text x="80" y="152" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">:</text>
+    <text x="96" y="152" font-family="'JetBrains Mono', monospace" font-size="14" fill="#10b981"> ["Java", "React"]</text>
+    <text x="290" y="152" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">,</text>
+
+    <text x="20" y="192" font-family="'JetBrains Mono', monospace" font-size="14" fill="#8ca4b8">};</text>
+
+    <!-- Blinking cursor -->
+    <rect x="20" y="210" width="10" height="18" rx="1" fill="#2dd4a8" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0;0.8" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Bottom accent line -->
+  <rect x="80" y="560" width="200" height="2" rx="1" fill="url(#accent)" opacity="0.3"/>
+
+  <!-- URL -->
+  <text x="80" y="590" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="500" fill="#475569">
+    alzemiro.dev
+  </text>
+</svg>

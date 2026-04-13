@@ -141,7 +141,7 @@ const { locale, currentUrl } = Astro.props;
     border-radius: var(--radius-button);
     background: var(--color-surface);
     cursor: pointer;
-    gap: 4px;
+    gap: 5px;
     padding: 0;
   }
 
@@ -151,23 +151,24 @@ const { locale, currentUrl } = Astro.props;
     height: 2px;
     background: var(--color-text-secondary);
     border-radius: 1px;
-    transition: all var(--transition-fast);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
   }
 
   .header__hamburger.open .header__hamburger-line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
 
   .header__hamburger.open .header__hamburger-line:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
   }
 
   .header__hamburger.open .header__hamburger-line:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .header__mobile {
-    display: none;
     position: fixed;
     top: 72px;
     left: 0;
@@ -176,10 +177,16 @@ const { locale, currentUrl } = Astro.props;
     background: var(--color-bg);
     padding: 2rem 1.5rem;
     z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
   }
 
   .header__mobile.open {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .header__mobile-links {
@@ -215,62 +222,64 @@ const { locale, currentUrl } = Astro.props;
     .header__hamburger {
       display: flex;
     }
-
-    .header__mobile {
-      display: none;
-    }
-
-    .header__mobile.open {
-      display: block;
-    }
   }
 </style>
 
 <script>
   // Header scroll effect
   const header = document.getElementById('header');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > 10) {
+    if (window.scrollY > 10) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
     }
-    lastScroll = currentScroll;
   });
 
-  // Mobile menu toggle
+  // Mobile menu
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
 
+  function openMenu() {
+    hamburger?.classList.add('open');
+    mobileMenu?.classList.add('open');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    hamburger?.classList.remove('open');
+    mobileMenu?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
   hamburger?.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    mobileMenu?.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    mobileMenu?.setAttribute('aria-hidden', String(!isOpen));
+    if (hamburger.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
-  // Close mobile menu on link click
+  // Close on link click
   document.querySelectorAll('.header__mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger?.classList.remove('open');
-      mobileMenu?.classList.remove('open');
-      hamburger?.setAttribute('aria-expanded', 'false');
-      mobileMenu?.setAttribute('aria-hidden', 'true');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && hamburger?.classList.contains('open')) {
+      closeMenu();
+    }
   });
 
   // Scroll spy
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.header__link');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -70% 0px',
-    threshold: 0,
-  };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -283,7 +292,7 @@ const { locale, currentUrl } = Astro.props;
         });
       }
     });
-  }, observerOptions);
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
 
   sections.forEach(section => observer.observe(section));
 </script>

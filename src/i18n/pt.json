@@ -13,7 +13,13 @@
     "role": "Full Stack Developer & Tech Lead",
     "tagline": "Projeto sistemas que gente depende. Lidero equipes que entregam com qualidade.",
     "ctaWork": "Ver meu trabalho",
-    "ctaContact": "Falar comigo"
+    "ctaContact": "Falar comigo",
+    "codeRole": "Full Stack Developer & Tech Lead",
+    "codeMainStack": "Java",
+    "codeMainStack2": "React",
+    "codeMainStack3": "TypeScript",
+    "codeFocus": "Arquitetura & IA no SDLC",
+    "codeStatus": "Sempre construindo, sempre aprendendo"
   },
   "about": {
     "title": "Sobre mim",
@@ -39,7 +45,8 @@
     "problem": "O problema",
     "solution": "O que fiz",
     "result": "O que mudou",
-    "viewDetails": "Ver detalhes"
+    "viewDetails": "Ver detalhes",
+    "viewGithub": "Ver no GitHub"
   },
   "differentials": {
     "title": "Como eu penso",
@@ -50,7 +57,8 @@
     "subtitle": "Disponível para oportunidades remotas onde arquitetura e liderança técnica sejam prioridade.",
     "email": "Email",
     "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "github": "GitHub",
+    "sendMessage": "Enviar mensagem"
   },
   "footer": {
     "builtWith": "",

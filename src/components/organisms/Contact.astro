@@ -25,7 +25,7 @@ const { locale } = Astro.props;
         </div>
         <div class="contact__card-content">
           <h3 class="contact__card-title">{t(locale, 'contact.email')}</h3>
-          <p class="contact__card-detail">{locale === 'pt' ? 'Enviar mensagem' : 'Send message'}</p>
+          <p class="contact__card-detail">{t(locale, 'contact.sendMessage')}</p>
         </div>
         <svg class="contact__card-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>

@@ -29,6 +29,7 @@ const alternateUrl = getAlternateUrl(Astro.url, alternateLocale);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={new URL('/og-image.svg', Astro.site ?? 'https://alzemiro.dev')} />
     <meta property="og:locale" content={locale === 'pt' ? 'pt_BR' : 'en_US'} />
     <meta property="og:locale:alternate" content={locale === 'pt' ? 'en_US' : 'pt_BR'} />
 
@@ -36,6 +37,7 @@ const alternateUrl = getAlternateUrl(Astro.url, alternateLocale);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/og-image.svg', Astro.site ?? 'https://alzemiro.dev')} />
 
     <!-- Alternate Language -->
     <link rel="alternate" hreflang={alternateLocale === 'pt' ? 'pt-BR' : 'en'} href={alternateUrl} />
@@ -51,8 +53,14 @@ const alternateUrl = getAlternateUrl(Astro.url, alternateLocale);
 
     <title>{title}</title>
 
-    <!-- Analytics (Plausible — privacy-first, no cookies) -->
-    <!-- Uncomment when domain is configured: <script defer data-domain="alzemiro.dev" src="https://plausible.io/js/script.js"></script> -->
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-783M1RGR87"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-783M1RGR87');
+    </script>
 
     <!-- Theme Script (prevent flash) -->
     <script is:inline>

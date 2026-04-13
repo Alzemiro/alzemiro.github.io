@@ -16,7 +16,7 @@ const currentLabel = locale === 'pt' ? 'PT' : 'EN';
 
 <div class="lang-switcher">
   <a
-    href={locale === 'pt' ? '#' : `/pt/`}
+    href={locale === 'pt' ? '#' : alternateUrl.href}
     class={`lang-switcher__link ${locale === 'pt' ? 'lang-switcher__link--active' : ''}`}
     aria-current={locale === 'pt' ? 'page' : undefined}
   >
@@ -24,7 +24,7 @@ const currentLabel = locale === 'pt' ? 'PT' : 'EN';
   </a>
   <span class="lang-switcher__divider">/</span>
   <a
-    href={locale === 'en' ? '#' : `/en/`}
+    href={locale === 'en' ? '#' : alternateUrl.href}
     class={`lang-switcher__link ${locale === 'en' ? 'lang-switcher__link--active' : ''}`}
     aria-current={locale === 'en' ? 'page' : undefined}
   >

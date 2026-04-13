@@ -19,7 +19,7 @@ const { locale } = Astro.props;
       <p class="hero__tagline">{t(locale, 'hero.tagline')}</p>
 
       <div class="hero__cta">
-        <Button href={`/${locale}/#projects`} variant="primary" size="lg">
+        <Button href={`/${locale}/#experience`} variant="primary" size="lg">
           {t(locale, 'hero.ctaWork')}
         </Button>
         <Button href="mailto:iagomoraest@gmail.com" variant="secondary" size="lg">
@@ -49,10 +49,10 @@ const { locale } = Astro.props;
           <span class="hero__code-filename">profile.ts</span>
         </div>
         <pre class="hero__code-content"><code><span class="hero__code-keyword">const</span> <span class="hero__code-var">alzemiro</span> = &#123;
-  <span class="hero__code-key">role</span>: <span class="hero__code-string">"Full Stack Developer & Tech Lead"</span>,
-  <span class="hero__code-key">mainStack</span>: [<span class="hero__code-string">"Java"</span>, <span class="hero__code-string">"React"</span>, <span class="hero__code-string">"TypeScript"</span>],
-  <span class="hero__code-key">focus</span>: <span class="hero__code-string">"Architecture & AI in SDLC"</span>,
-  <span class="hero__code-key">status</span>: <span class="hero__code-string">"Always building, always learning"</span>,
+  <span class="hero__code-key">role</span>: <span class="hero__code-string">"{t(locale, 'hero.codeRole')}"</span>,
+  <span class="hero__code-key">mainStack</span>: [<span class="hero__code-string">"{t(locale, 'hero.codeMainStack')}"</span>, <span class="hero__code-string">"{t(locale, 'hero.codeMainStack2')}"</span>, <span class="hero__code-string">"{t(locale, 'hero.codeMainStack3')}"</span>],
+  <span class="hero__code-key">focus</span>: <span class="hero__code-string">"{t(locale, 'hero.codeFocus')}"</span>,
+  <span class="hero__code-key">status</span>: <span class="hero__code-string">"{t(locale, 'hero.codeStatus')}"</span>,
 &#125;;</code></pre>
       </div>
     </div>
@@ -118,6 +118,7 @@ const { locale } = Astro.props;
 
   .hero__cta {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 0.5rem;
   }

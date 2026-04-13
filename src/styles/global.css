@@ -60,10 +60,16 @@
   box-sizing: border-box;
 }
 
+img, video, svg, canvas, iframe, table {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -88,6 +94,8 @@ h3 { font-size: clamp(1.125rem, 3vw, 1.25rem); }
 
 code, pre {
   font-family: var(--font-mono);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ===== Scrollbar ===== */
