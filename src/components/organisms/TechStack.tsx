@@ -8,10 +8,10 @@ interface Props {
   locale: Locale;
 }
 
-const levelLabels: Record<string, { pt: string; en: string }> = {
-  expert: { pt: 'Especialista', en: 'Expert' },
-  advanced: { pt: 'Avançado', en: 'Advanced' },
-  intermediate: { pt: 'Intermediário', en: 'Intermediate' },
+const levelLabels: Record<string, string> = {
+  expert: 'Expert',
+  advanced: 'Advanced',
+  intermediate: 'Intermediate',
 };
 
 export default function TechStack({ locale }: Props) {
@@ -66,7 +66,7 @@ export default function TechStack({ locale }: Props) {
                 <div className="stack__item-header">
                   <span className="stack__item-name">{tech.name}</span>
                   <span className="stack__item-level">
-                    {levelLabels[tech.level][locale]}
+                    {levelLabels[tech.level]}
                   </span>
                 </div>
                 <div className="stack__item-bar">

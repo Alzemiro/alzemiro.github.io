@@ -80,6 +80,8 @@ body {
   line-height: 1.6;
   transition: background-color var(--transition-slow), color var(--transition-slow);
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===== Typography ===== */
