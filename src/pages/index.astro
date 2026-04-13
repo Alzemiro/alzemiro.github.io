@@ -1,4 +1,14 @@
 ---
-// Redirect root to default locale
-return Astro.redirect('/pt/');
+// Redirect root to default locale (instant, no visible message)
 ---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/pt/" />
+    <link rel="canonical" href="/pt/" />
+  </head>
+  <body>
+    <script>window.location.replace('/pt/');</script>
+  </body>
+</html>
