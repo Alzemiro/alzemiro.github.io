@@ -21,6 +21,7 @@ export const techStack: TechItem[] = [
   { name: 'Spring Boot 3', category: 'backend', level: 'expert' },
   { name: 'JPA/Hibernate', category: 'backend', level: 'advanced' },
   { name: 'SQL', category: 'backend', level: 'advanced' },
+  { name: 'Kafka', category: 'backend', level: 'intermediate' },
 
   // Database
   { name: 'Redis', category: 'database', level: 'advanced' },
