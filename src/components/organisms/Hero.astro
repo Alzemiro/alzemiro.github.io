@@ -158,6 +158,11 @@ const { locale } = Astro.props;
   }
 
   /* Code snippet */
+  .hero__content,
+  .hero__code {
+    min-width: 0;
+  }
+
   .hero__code {
     animation: fadeIn 0.8s ease-out 0.3s both;
   }
@@ -212,9 +217,17 @@ const { locale } = Astro.props;
   .hero__code-string { color: var(--color-success); }
 
   @media (max-width: 768px) {
+    .hero {
+      align-items: flex-start;
+      min-height: 100svh;
+      padding-top: 88px;
+      padding-bottom: 3rem;
+    }
+
     .hero__container {
       grid-template-columns: 1fr;
       gap: 2rem;
+      width: 100%;
     }
 
     .hero__code {
